@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\Idan's\\Source\\Repos\\SupermarketProductsScraping\\env\\Scripts\\python.exe"
+    "python.pythonPath": "c:\\Users\\Idan's\\Source\\Repos\\SupermarketProductsScraping\\env\\Scripts\\python.exe",
+    "appService.showBuildDuringDeployPrompt": false
 }

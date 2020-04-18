@@ -7,7 +7,7 @@ import dateutil.parser as parser
 
 @app.route('/')
 def koko():
-    return "popoj"
+    return "popojc"
 
 @app.route('/getProducts')
 def get_products():
