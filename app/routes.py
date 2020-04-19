@@ -12,7 +12,7 @@ def koko():
 @app.route('/getProducts')
 def get_products():
     try:
-        from bson.json_util import dumps
+        # from bson.json_util import dumps
 
         ramiLevi_instance = RamiLeviProductsFetcher()
         product_links = ramiLevi_instance.get_products_links()
