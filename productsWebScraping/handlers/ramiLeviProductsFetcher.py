@@ -10,7 +10,8 @@ import requests
 import re
 
 # Temp store ids
-haifa_store_ids = ["019", "057"]
+# , "057"
+haifa_store_ids = ["019"] 
 
 # searching categories
 search_categories = {
