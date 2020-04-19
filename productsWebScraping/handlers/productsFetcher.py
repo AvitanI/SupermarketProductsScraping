@@ -10,7 +10,14 @@ class ProductsFetcher:
         soup = None
 
         try:
-            response = requests.get(products_url, verify=True)
+            proxy_host = "proxy.crawlera.com"
+            proxy_port = "8010"
+            proxy_auth = ":"
+            proxies = {
+                "https": "https://{}@{}:{}/".format(proxy_auth, proxy_host, proxy_port),
+                "http": "http://{}@{}:{}/".format(proxy_auth, proxy_host, proxy_port)
+            }
+            response = requests.get(products_url, proxies=proxies, verify=False)
             soup = BeautifulSoup(response.text, "html.parser")
         except Exception as e:
             print('failed to get html response', str(e))
