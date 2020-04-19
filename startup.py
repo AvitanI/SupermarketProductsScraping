@@ -1,3 +1,5 @@
+# print("start up")
+
 from app import app
 
 import os
@@ -22,4 +24,4 @@ import os
 
 # if __name__ == '__main__':
 #     # app.config['JSON_AS_ASCII'] = False
-#     app.run()
+#     app.run(debug=True)

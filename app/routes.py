@@ -37,7 +37,10 @@ def get_products():
                 'Products': products
             }
 
-            r = requests.post('http://localhost:49847/api/Products/UpdateProducts', json=json,verify=False)
+            # prod: https://mysmartrefrigeratorwebapi.azurewebsites.net
+            # dev: http://localhost:49847/api/Products/UpdateProducts
+
+            r = requests.post('https://mysmartrefrigeratorwebapi.azurewebsites.net/api/Products/UpdateProducts', json=json,verify=False)
 
         # return result
         return 'OK'
