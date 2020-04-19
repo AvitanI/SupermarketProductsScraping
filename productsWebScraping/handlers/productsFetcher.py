@@ -10,7 +10,7 @@ class ProductsFetcher:
         soup = None
 
         try:
-            response = requests.get(products_url, verify=False)
+            response = requests.get(products_url, verify=True)
             soup = BeautifulSoup(response.text, "html.parser")
         except Exception as e:
             print('failed to get html response', str(e))
