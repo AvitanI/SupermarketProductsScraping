@@ -4,7 +4,10 @@ from flask import Flask
 app = Flask(__name__)
 
 from app import routes
-print("here")
+
+import os
+print("Mode: " + str(os.environ.get('FLASK_ENV')))
+
 # def job():
 #     print("I'm working...")
 #
