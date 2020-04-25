@@ -37,7 +37,7 @@ class RamiLeviProductsFetcher(ProductsFetcher):
     def get_products_links(self):
         # Get chain html as Beautiful Soup
         parsed_html = self.get_parsed_html_by_chain_url(RAMILEVI_URL)
-
+        print('parsed_html: ' + str(parsed_html))
         files = self.koko(parsed_html)
 
         products_to_download = []
