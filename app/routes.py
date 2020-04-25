@@ -4,6 +4,7 @@ from productsWebScraping.handlers.ramiLeviProductsFetcher import RamiLeviProduct
 from flask import jsonify
 import requests
 import dateutil.parser as parser
+import traceback
 
 @app.route('/')
 def koko():
@@ -45,4 +46,5 @@ def get_products():
         # return result
         return 'OK'
     except Exception as e:
-        return jsonify({ "error": str(e) })
+        tb = traceback.format_exc()
+        return jsonify({ "error": str(e), "trace": tb })
