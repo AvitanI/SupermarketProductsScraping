@@ -6,6 +6,17 @@ app = Flask(__name__)
 # app.run(debug=True)
 from app import routes
 
+import logging
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+# __name__
+logger = logging.getLogger()
+
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=7b71d952-0a78-41de-a29d-f1d8737f634e')
+)
+
 # def job():
 #     print("I'm working...")
 #
