@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup, Tag
 # import cookiejar
 import requests
 import re
+import logging
+from flask import jsonify
 
 # Temp store ids
 # , "057"
@@ -29,7 +31,7 @@ DOWNLOAD_URL = 'https://url.retail.publishedprices.co.il/file/d/'
 
 class RamiLeviProductsFetcher(ProductsFetcher):
     def __init__(self):
-        print(__name__ + ' constructor')
+        # print(__name__ + ' constructor')
         super(RamiLeviProductsFetcher, self).__init__(RAMILEVI_URL)
 
         self.session = requests.Session()
@@ -39,11 +41,8 @@ class RamiLeviProductsFetcher(ProductsFetcher):
         parsed_html = self.get_parsed_html_by_chain_url(RAMILEVI_URL)
 
         # print('parsed_html: ' + str(parsed_html))
-        import logging
-        logger = logging.getLogger()
-        logger.warning('Parsed html: ' + str(parsed_html))
-
-        files = self.koko(parsed_html)
+        
+        files = self.get_files(parsed_html)
 
         products_to_download = []
 
@@ -69,7 +68,7 @@ class RamiLeviProductsFetcher(ProductsFetcher):
 
         return products_to_download
 
-    def koko(self, parsed_html):
+    def get_files(self, parsed_html):
         # Find login form
         login_form = parsed_html.find('form', id='login-form')
 
@@ -126,6 +125,10 @@ class RamiLeviProductsFetcher(ProductsFetcher):
         }
 
         files = self.session.post('https://url.retail.publishedprices.co.il/file/ajax_dir', headers=headers, data=payload, verify=False)
+
+        logger = logging.getLogger()
+        logger.info('Files: ' + jsonify(files.json()))
+
         res = files.json()
         return res['aaData']
 
