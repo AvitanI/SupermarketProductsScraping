@@ -53,5 +53,5 @@ def get_products():
         return 'OK'
     except Exception as e:
         tb = traceback.format_exc()
-        logger.error('Failed to pull products: ' + jsonify({ "error": str(e), "trace": tb })
+        logger.error('Failed to pull products: ' + jsonify({ "error": str(e), "trace": tb }))
         return jsonify({ "error": str(e), "trace": tb })
