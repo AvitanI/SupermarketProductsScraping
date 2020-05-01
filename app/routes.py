@@ -37,7 +37,7 @@ def get_products():
                 if 'PriceUpdateDate' in product:
                     product['PriceUpdateDate'] = parser.parse(product['PriceUpdateDate']).isoformat()
 
-            json = {
+            payload = {
                 'ChainID': 2,
                 'StoreID': product_link.store_id,
                 'Products': products
@@ -46,7 +46,7 @@ def get_products():
             # prod: https://mysmartrefrigeratorwebapi.azurewebsites.net
             # dev: http://localhost:49847/api/Products/UpdateProducts
 
-            r = requests.post('https://mysmartrefrigeratorwebapi.azurewebsites.net/api/Products/UpdateProducts', json=json,verify=False)
+            r = requests.post('https://mysmartrefrigeratorwebapi.azurewebsites.net/api/Products/UpdateProducts', json=payload,verify=False)
             logger.info('Sent products to store: ' + product_link.store_id)
 
         # return result
