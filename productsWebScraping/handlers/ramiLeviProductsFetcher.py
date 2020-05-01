@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup, Tag
 import requests
 import re
 import logging
-from flask import jsonify
+import json
 
 # Temp store ids
 # , "057"
@@ -127,7 +127,7 @@ class RamiLeviProductsFetcher(ProductsFetcher):
         files = self.session.post('https://url.retail.publishedprices.co.il/file/ajax_dir', headers=headers, data=payload, verify=False)
 
         logger = logging.getLogger()
-        logger.info('Files: ' + jsonify(files.json()))
+        logger.info('Files: ' + json.dumps(files.json(), default=lambda x: x.__dict__))
 
         res = files.json()
         return res['aaData']

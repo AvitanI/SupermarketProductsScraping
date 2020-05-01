@@ -6,6 +6,7 @@ import requests
 import dateutil.parser as parser
 import traceback
 import logging
+import json
 
 @app.route('/')
 def home():
@@ -21,8 +22,7 @@ def get_products():
         ramiLevi_instance = RamiLeviProductsFetcher()
         product_links = ramiLevi_instance.get_products_links()
 
-        logger.info('Product links: ' + jsonify(product_links))
-
+        logger.info('Product links: ' + json.dumps(product_links, default=lambda x: x.__dict__))
         # shufersal_instance = ShufersalProductsFetcher()
         # product_links = shufersal_instance.get_products_links()
 
@@ -53,5 +53,5 @@ def get_products():
         return 'OK'
     except Exception as e:
         tb = traceback.format_exc()
-        logger.error('Failed to pull products: ' + jsonify({ "error": str(e), "trace": tb }))
+        logger.error('Failed to pull products: ' + json.dumps({ "error": str(e), "trace": tb }, default=lambda x: x.__dict__))
         return jsonify({ "error": str(e), "trace": tb })
