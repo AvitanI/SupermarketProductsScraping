@@ -53,7 +53,7 @@ def get_products():
             logger.info('Sent products to store: ' + product_link.store_id)
 
         # return result
-        return 'OK'
+        return jsonify(total_peroducts_per_store)
     except Exception as e:
         tb = traceback.format_exc()
         logger.error('Failed to pull products: ' + json.dumps({ "error": str(e), "trace": tb }, default=lambda x: x.__dict__))
