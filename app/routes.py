@@ -26,10 +26,13 @@ def get_products():
         # shufersal_instance = ShufersalProductsFetcher()
         # product_links = shufersal_instance.get_products_links()
 
+        total_peroducts_per_store = []
 
         for product_link in product_links:
 
             products = ramiLevi_instance.get_products(product_link)
+
+            total_peroducts_per_store.append({ 'storeID' : product_link.store_id, 'link' : product_link.linkForDownload, 'products' : len(products) })
 
             # result = dumps(products, ensure_ascii=False)
 
