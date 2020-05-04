@@ -11,6 +11,7 @@ googleapis-common-protos==1.51.0
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.2
+lxml==4.5.0
 MarkupSafe==1.1.1
 opencensus==0.7.7
 opencensus-context==0.1.1
@@ -22,6 +23,7 @@ pyasn1-modules==0.2.8
 python-dateutil==2.8.1
 pytz==2020.1
 requests==2.23.0
+rope==0.16.0
 rsa==4.0
 six==1.14.0
 soupsieve==2.0
