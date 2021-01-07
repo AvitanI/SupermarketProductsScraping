@@ -11,7 +11,7 @@ googleapis-common-protos==1.51.0
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.2
-lxml==4.5.0
+lxml==4.6.2
 MarkupSafe==1.1.1
 opencensus==0.7.7
 opencensus-context==0.1.1
